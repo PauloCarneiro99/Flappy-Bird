@@ -34,6 +34,11 @@ function draw() {
 
 }
 
+
+function mousePressed(){
+	bird.up();
+}
+
 function keyPressed(){
 	if(key == ' '){
 		bird.up();
