@@ -26,7 +26,7 @@ function draw() {
   	}
 
   	if(pipes[i].offscreen()){
-  		(pipes[i].highlight == false)
+  		if(pipes[i].highlight == false)
   			placar += 1;
   		pipes.splice(i,1);
   	}
