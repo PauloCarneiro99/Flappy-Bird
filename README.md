@@ -6,4 +6,4 @@
 
 🦅 Flappy Bird developed in JavaScript using P5.js library
 
-The game is hosted in my github page. If you want to play, just click the follow link: [Play Flappy Bird](paulocarneiro99.github.io/Flappy-Bird)
+The game is hosted in my github page. If you want to play, just click the follow link: [Play Flappy Bird](https://paulocarneiro99.github.io/Flappy-Bird/)
