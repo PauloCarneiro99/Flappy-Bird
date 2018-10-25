@@ -27,7 +27,7 @@ function Pipe(){
 	}
 
 	this.hits = function(bird){
-		if((bird.y < this.top || bird.y > height - this.bottom) && (bird.x > this.x && bird.x < this.x + this.w)){
+		if((bird.y - 16 < this.top || bird.y +16 > height - this.bottom) && (bird.x > this.x && bird.x < this.x + this.w)){
 			this.highlight = true;			
 			return true;
 		}
