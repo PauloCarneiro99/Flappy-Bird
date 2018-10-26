@@ -1,4 +1,8 @@
+var nroGeracoes = 1
+
 function nextGeneration(){
+	nroGeracoes++;
+	document.getElementById("geracao").innerHTML = "Numero de geracoes : " + nroGeracoes;
 
 	calculateFitness();
 	for(var i=0; i< total; i++){

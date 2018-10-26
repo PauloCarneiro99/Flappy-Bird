@@ -2,9 +2,9 @@ var total = 500;
 var bird = [];
 var pipes = [];
 var savedBirds = [];
-var placar = 0;
 var cont = 0;
 var slider;
+var bestScore = 0
 
 function setup() {
   createCanvas(400, 600);
@@ -12,6 +12,8 @@ function setup() {
   for(var i=0; i<total; i++){
     bird[i] = new Bird();
   }
+  document.getElementById("geracao").innerHTML = "Numero de geracoes : " + 1;
+  document.getElementById("bestScore").innerHTML = "Best Score : " + bestScore;
 }
 
 function draw() {  
@@ -25,8 +27,8 @@ function draw() {
 	    bird[i].update();
 	    bird[i].show();
 	  }
-
-	  //document.getElementById("placar").innerHTML = placar;
+	  var aux = bird[0].getScore();
+	  document.getElementById("score").innerHTML = "Score : " + aux;
 
 	  for(var i = pipes.length -1 ; i >= 0 ; i--){
 	  	pipes[i].show();
@@ -39,12 +41,14 @@ function draw() {
 	    }
 
 	  	if(pipes[i].offscreen()){
-	  		if(pipes[i].highlight == false)
-	  			placar += 1;
 	  		pipes.splice(i,1);
 	  	}
 
 	    if(bird.length == 0){
+	       if(aux > bestScore){
+	       	bestScore = aux
+  			document.getElementById("bestScore").innerHTML = "Best Score : " + bestScore;
+	       }
 	       nextGeneration();
 	       cont = 0;
 	       pipes = []

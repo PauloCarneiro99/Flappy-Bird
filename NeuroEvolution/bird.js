@@ -48,9 +48,7 @@ function Bird(brain) {
 	}
 
 	this.update = function(){
-
 		this.score++;
-
 
 		this.velocity += this.gravity;
 		this.velocity *= 0.9;
@@ -64,6 +62,10 @@ function Bird(brain) {
 			this.y = 0;
 			this.velocity = 0;
 		}
+	}
+
+	this.getScore = function(){
+		return this.score;
 	}
 
 	this.show = function(){
