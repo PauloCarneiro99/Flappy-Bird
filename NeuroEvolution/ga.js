@@ -20,7 +20,7 @@ function pickOne(){
 
 	var b = savedBirds[index];
 	var child = new Bird(b.brain);
-	//child.mutate();
+	child.mutate();
 	return child;
 }
 
