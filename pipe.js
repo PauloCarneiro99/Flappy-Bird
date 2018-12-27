@@ -1,6 +1,6 @@
 function Pipe(){
 	this.hole = 100;
-	this.top = (random() * 550) + 1;
+	this.top = (random() * (height - this.hole)) + 1;
 	this.bottom = height - this.top - this.hole;
 	this.x = width;
 	this.w = 20;
@@ -28,7 +28,7 @@ function Pipe(){
 
 	this.hits = function(bird){
 		if((bird.y - 16 < this.top || bird.y +16 > height - this.bottom) && (bird.x > this.x && bird.x < this.x + this.w)){
-			this.highlight = true;			
+			//this.highlight = true;			
 			return true;
 		}
 	}

@@ -21,9 +21,10 @@ function Bird() {
 		}
 	}
 
-	this.show = function(){
-		fill(255);
-		ellipse(this.x, this.y, 32, 32);
+	this.show = function(passaro){
+		// fill(255);
+		// ellipse(this.x, this.y, 32, 32);
+		image(passaro, this.x, this.y, 50, 50)
 	}
 
 	this.up = function(){

@@ -1,17 +1,23 @@
 var bird;
 var pipes = [];
 var placar = 0;
+var passaro;
+function preload(){
+  bk  = loadImage('image/bk.png')
+  passaro = loadImage('image/bird.jpg')
+}
+
+
 function setup() {
-  createCanvas(400, 600);
+  createCanvas(windowWidth, windowHeight);
   bird = new Bird();
   pipes.push(new Pipe());
 }
 
 function draw() {
-  background(0);
+  background(bk);
   bird.update();
-  bird.show();
-  document.getElementById("placar").innerHTML = placar;
+  bird.show(passaro);
   if(frameCount % 100 == 0){
   	pipes.push(new Pipe());
   }
