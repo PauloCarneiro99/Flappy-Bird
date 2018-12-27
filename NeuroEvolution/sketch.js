@@ -4,16 +4,19 @@ var pipes = [];
 var savedBirds = [];
 var cont = 0;
 var slider;
+var sliderQtdPassaros
 var bestScore = 0
 
 function setup() {
   createCanvas(400, 600);
   slider = createSlider(1, 100, 1)
+  sliderQtdPassaros = createSlider(1, 100, 500)
   for(var i=0; i<total; i++){
     bird[i] = new Bird();
   }
   document.getElementById("geracao").innerHTML = "Numero de geracoes : " + 1;
   document.getElementById("bestScore").innerHTML = "Best Score : " + bestScore;
+  document.getElementById("BirdsAlive").innerHTML = "Birds alive in this generation : " + 500;
 }
 
 function draw() {  
@@ -29,6 +32,7 @@ function draw() {
 	  }
 	  var aux = bird[0].getScore();
 	  document.getElementById("score").innerHTML = "Score : " + aux;
+	  document.getElementById("BirdsAlive").innerHTML = "Birds alive in this generation : " + bird.length
 
 	  for(var i = pipes.length -1 ; i >= 0 ; i--){
 	  	pipes[i].show();
@@ -49,6 +53,7 @@ function draw() {
 	       	bestScore = aux
   			document.getElementById("bestScore").innerHTML = "Best Score : " + bestScore;
 	       }
+	       total = sliderQtdPassaros.value()
 	       nextGeneration();
 	       cont = 0;
 	       pipes = []

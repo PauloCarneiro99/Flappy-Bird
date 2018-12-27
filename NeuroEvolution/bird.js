@@ -40,7 +40,7 @@ function Bird(brain) {
 
 	this.mutate = function(){
 		console.log(this)
-		this.brain.mutate(0.1);
+		this.brain.mutate();
 	}
 
 	this.getFitness = function(){
