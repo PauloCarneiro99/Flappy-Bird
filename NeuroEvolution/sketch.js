@@ -9,8 +9,11 @@ var bestScore = 0
 
 function setup() {
   createCanvas(400, 600);
+  textSize(15)
   slider = createSlider(1, 100, 1)
-  sliderQtdPassaros = createSlider(1, 100, 500)
+  slider.position(300, 75)
+  sliderQtdPassaros = createSlider(1, 1000, 500)
+  sliderQtdPassaros.position(300, 95)
   for(var i=0; i<total; i++){
     bird[i] = new Bird();
   }
@@ -19,7 +22,9 @@ function setup() {
   document.getElementById("BirdsAlive").innerHTML = "Birds alive in this generation : " + 500;
 }
 
-function draw() {  
+function draw() {
+	document.getElementById("Velocidade").innerHTML = "Velocidade : " + slider.value()
+	document.getElementById("Quantidade").innerHTML = "Quantidade Passaros Proxima Geracao :" + sliderQtdPassaros.value()
   for(var n =0; n < slider.value(); n++){
 	  if(cont % 100 == 0){
 	  	pipes.push(new Pipe());
