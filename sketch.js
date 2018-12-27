@@ -4,7 +4,7 @@ var placar = 0;
 var passaro;
 function preload(){
   bk  = loadImage('image/bk.png')
-  passaro = loadImage('image/bird.jpg')
+  passaro = loadImage('image/bird.png')
 }
 
 
