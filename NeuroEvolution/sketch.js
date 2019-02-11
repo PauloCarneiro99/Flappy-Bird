@@ -20,7 +20,7 @@ function PlotarGrafico(){
 	};
 
 	console.log(data)
-	Plotly.newPlot('Grafico', data, layout);
+	Plotly.newPlot('Grafico', [data], layout);
 }
 
 
