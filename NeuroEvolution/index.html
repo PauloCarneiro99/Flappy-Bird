@@ -13,6 +13,9 @@
     <script src="bird.js" ></script>
     <script src="pipe.js" ></script>
     <script src="ga.js" ></script>
+    <script src="https://d3js.org/d3.v5.min.js" charset="utf-8"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
   </head>
   <body>
 	<div id="geracao"> 0 </div>
@@ -21,5 +24,9 @@
 	<div id="BirdsAlive"> 0 </div>
 	<div id="Velocidade"> Velocidade :  </div>
 	<div id="Quantidade"> Quantidade por Geracao : </div>
+  <div>
+    <button name="button" onClick="PlotarGrafico()">Plotar Grafico</button>
+  </div>
+  <div id="Grafico"></div>
   </body>
 </html>

@@ -1,11 +1,28 @@
-var total = 500;
-var bird = [];
-var pipes = [];
-var savedBirds = [];
-var cont = 0;
-var slider;
+var total = 500
+var X = []
+var Y = []
+var bird = []
+var pipes = []
+var savedBirds = []
+var cont = 0
+var slider
 var sliderQtdPassaros
 var bestScore = 0
+
+function PlotarGrafico(){
+    var layout = {
+  		title:'Curva de aprendizado'
+	};
+	var data = {
+		x: X,
+		y:Y,
+		type: 'scatter'
+	};
+
+	console.log(data)
+	Plotly.newPlot('Grafico', data, layout);
+}
+
 
 function setup() {
   createCanvas(400, 600);
@@ -15,11 +32,11 @@ function setup() {
   sliderQtdPassaros = createSlider(1, 1000, 500)
   sliderQtdPassaros.position(300, 95)
   for(var i=0; i<total; i++){
-    bird[i] = new Bird();
+    bird[i] = new Bird()
   }
-  document.getElementById("geracao").innerHTML = "Numero de geracoes : " + 1;
-  document.getElementById("bestScore").innerHTML = "Best Score : " + bestScore;
-  document.getElementById("BirdsAlive").innerHTML = "Birds alive in this generation : " + 500;
+  document.getElementById("geracao").innerHTML = "Numero de geracoes : " + 1
+  document.getElementById("bestScore").innerHTML = "Best Score : " + bestScore
+  document.getElementById("BirdsAlive").innerHTML = "Birds alive in this generation : " + 500
 }
 
 function draw() {
@@ -27,51 +44,55 @@ function draw() {
 	document.getElementById("Quantidade").innerHTML = "Quantidade Passaros Proxima Geracao :" + sliderQtdPassaros.value()
   for(var n =0; n < slider.value(); n++){
 	  if(cont % 100 == 0){
-	  	pipes.push(new Pipe());
+	  	pipes.push(new Pipe())
 	  }
 
 	  for(var i=0; i<bird.length ; i++){
-	    bird[i].think(pipes);
-	    bird[i].update();
-	    bird[i].show();
+	    bird[i].think(pipes)
+	    bird[i].update()
+	    bird[i].show()
 	  }
-	  var aux = bird[0].getScore();
-	  document.getElementById("score").innerHTML = "Score : " + aux;
+	  var aux = bird[0].getScore()
+	  document.getElementById("score").innerHTML = "Score : " + aux
 	  document.getElementById("BirdsAlive").innerHTML = "Birds alive in this generation : " + bird.length
 
 	  for(var i = pipes.length -1 ; i >= 0 ; i--){
-	  	pipes[i].show();
-	  	pipes[i].update();
+	  	pipes[i].show()
+	  	pipes[i].update()
 
 	    for(var j=bird.length-1; j>=0; j--){
 	      if(pipes[i].hits(bird[j])){
-	        savedBirds.push(bird.splice(j, 1)[0]); //delete birds with colision
+	        savedBirds.push(bird.splice(j, 1)[0]) //delete birds with colision
 	      }
 	    }
 
 	  	if(pipes[i].offscreen()){
-	  		pipes.splice(i,1);
+	  		pipes.splice(i,1)
 	  	}
 
 	    if(bird.length == 0){
+	    	// console.log(aux)
+	    	// console.log(getGeracao())
+	    	X.push(getGeracao())
+	    	Y.push(aux)
 	       if(aux > bestScore){
 	       	bestScore = aux
   			document.getElementById("bestScore").innerHTML = "Best Score : " + bestScore;
 	       }
 	       total = sliderQtdPassaros.value()
-	       nextGeneration();
-	       cont = 0;
+	       nextGeneration()
+	       cont = 0
 	       pipes = []
-	       pipes.push(new Pipe());
+	       pipes.push(new Pipe())
 	    }
 	  }
-	  cont++;
+	  cont++
 	}
   background(0);  
   for(var i=0; i<bird.length ; i++){
-    bird[i].show();
+    bird[i].show()
   }
   for(var i = pipes.length -1 ; i >= 0 ; i--){
-  	pipes[i].show();
+  	pipes[i].show()
   }
 }
