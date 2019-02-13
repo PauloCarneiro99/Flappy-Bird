@@ -3,13 +3,13 @@ var pipes = [];
 var placar = 0;
 var passaro;
 function preload(){
-  bk  = loadImage('image/bg1.png')
+  bk  = loadImage('image/bk.png')
   passaro = loadImage('image/bird.png')
 }
 
 
 function setup() {
-  createCanvas(400, 500);
+  createCanvas(windowWidth, windowHeight);
   bird = new Bird();
   pipes.push(new Pipe());
 }
