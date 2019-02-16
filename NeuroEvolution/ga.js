@@ -1,14 +1,14 @@
 var nroGeracoes = 1
 
 function nextGeneration(){
-	nroGeracoes++
-	document.getElementById("geracao").innerHTML = "Numero de geracoes : " + nroGeracoes
+	nroGeracoes++;
+	document.getElementById("geracao").innerHTML = "Numero de geracoes : " + nroGeracoes;
 
-	calculateFitness()
+	calculateFitness();
 	for(var i=0; i< total; i++){
-		bird[i] = pickOne()	
+		bird[i] = pickOne();	
 	}
-	savedBirds = [] //limpando as geracoes passadas
+	savedBirds = []; //limpando as geracoes passadas
 }
 
 //Aqui escolhe os melhores passaros
@@ -17,30 +17,30 @@ function pickOne(){
 	var r = random(1)
 
 	while(r > 0){
-		r = r - savedBirds[index].getFitness()
-		index++
+		r = r - savedBirds[index].getFitness();
+		index++;
 	}
-	index--
+	index--;
 
-	var b = savedBirds[index]
-	var child = new Bird(b.brain)
-	child.mutate()
-	return child
+	var b = savedBirds[index];
+	var child = new Bird(b.brain);
+	child.mutate();
+	return child;
 }
 
 
 
 function calculateFitness(){
-	var sum = 0
+	var sum = 0;
 	for(var b of savedBirds){
-		sum += b.score
+		sum += b.score;
 	}
 
 	for(var b of savedBirds){
-		b.fitness += b.score/sum
+		b.fitness += b.score/sum;
 	}
 }
 
-function getGeracao(){
-	return nroGeracoes
+function getGeneration(){
+	return nroGeracoes;
 }
